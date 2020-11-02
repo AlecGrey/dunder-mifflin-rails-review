@@ -1,0 +1,31 @@
+<h1><%= @employee.id ? "Edit Employee" : "New Employee" %></h1>
+
+<%= form_for @employee do |f| %>
+
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+    <br>
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+    <br>
+    <%= f.label :alias %>
+    <%= f.text_field :alias %>
+    <br>
+    <%= f.label :job_title %>
+    <%= f.text_field :title %>
+    <br>
+    <%= f.label :office_location %>
+    <%= f.text_field :office %>
+    <br>
+    <%= f.label :image_URL %>
+    <%= f.text_field :img_url %>
+    <br>
+    <%= f.label :dog %>
+    <%= f.collection_select :dog_id, Dog.all, :id, :name %>
+    <br>
+    <%= f.submit %>
+<% end %>
+
+<% @employee.errors.full_messages.each do |err| %>
+    <p><%= err %></p>
+<% end %>

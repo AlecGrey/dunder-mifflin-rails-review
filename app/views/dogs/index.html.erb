@@ -1,0 +1,11 @@
+<h1>All Dogs</h1>
+
+<%= button_to "Sort", sort_dogs_path, method: :post %>
+
+<ul>
+    <% @dogs.each do |dog| %>
+
+        <li><%= link_to dog.name, dog_path(dog) %></li>
+        
+    <% end %>
+</ul>
